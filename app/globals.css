@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand Colors */
+  --brand-green: #A6CD3D;
+  --brand-blue: #19448E;
+  --brand-red: #E81D15;
+  --brand-orange: #FA643F;
+
+  /* Semantic tokens */
+  --background: #FFFFFF;
+  --foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+  --primary: #19448E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F7E6;
+  --secondary-foreground: #19448E;
+  --muted: #F9FAFB;
+  --muted-foreground: #6B7280;
+  --accent: #A6CD3D;
+  --accent-foreground: #111827;
+  --destructive: #E81D15;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #A6CD3D;
+  --radius: 0.75rem;
+
+  /* Kyan custom tokens */
+  --kyan-green: #A6CD3D;
+  --kyan-green-light: #EAF5C1;
+  --kyan-blue: #19448E;
+  --kyan-blue-light: #EEF2FB;
+  --kyan-gradient-start: #E81D15;
+  --kyan-gradient-end: #FA643F;
+  --kyan-surface: #F8FAFC;
+  --kyan-border: #E5E7EB;
+}
+
+@theme inline {
+  --font-sans: var(--font-cairo), 'Cairo', 'Tajawal', sans-serif;
+  --font-serif: var(--font-inter), 'Inter', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Kyan brand color utilities */
+  --color-kyan-green: var(--kyan-green);
+  --color-kyan-green-light: var(--kyan-green-light);
+  --color-kyan-blue: var(--kyan-blue);
+  --color-kyan-blue-light: var(--kyan-blue-light);
+  --color-kyan-surface: var(--kyan-surface);
+  --color-kyan-border: var(--kyan-border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html[dir='rtl'] body {
+    font-family: var(--font-cairo), 'Cairo', 'Tajawal', sans-serif;
+  }
+  html[dir='ltr'] body {
+    font-family: var(--font-inter), 'Inter', sans-serif;
+  }
+}
+
+/* Gradient utility */
+.kyan-gradient {
+  background: linear-gradient(135deg, var(--kyan-gradient-start), var(--kyan-gradient-end));
+}
+
+.kyan-gradient-text {
+  background: linear-gradient(135deg, var(--kyan-gradient-start), var(--kyan-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth transitions */
+.kyan-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card hover effect */
+.kyan-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kyan-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(25, 68, 142, 0.12);
+}
+
+/* RTL-safe spacing */
+[dir='rtl'] .rtl-flip {
+  transform: scaleX(-1);
+}
