@@ -8,10 +8,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const contactInfoItems = [
-  { icon: MapPin, titleKey: "contact.address_title", valueKey: "contact.address_value", href: null },
-  { icon: Mail, titleKey: "contact.email_title", valueKey: "contact.email_value", href: "mailto:Info@Kyan.sa" },
-  { icon: Phone, titleKey: "contact.phone_title", valueKey: "contact.phone_value", href: "tel:+966595777447" },
-  { icon: Clock, titleKey: "contact.hours_title", valueKey: "contact.hours_value", href: null },
+  { icon: MapPin, titleKey: "contact.address_title", valueKey: "contact.address_value", valueKey2: "", href1: null, href2: null },
+  { icon: Mail, titleKey: "contact.email_title", valueKey: "contact.email_value", valueKey2: "contact.email_value2", href: "mailto:Info@Kyan.sa", href2: "mailto:noon.Adam@kyan.sa"  },
+  { icon: Phone, titleKey: "contact.phone_title", valueKey: "contact.phone_value", valueKey2: "contact.phone_value2", href: "tel:+966595777447", href2: "tel:+966590026897" },
+  { icon: Clock, titleKey: "contact.hours_title", valueKey: "contact.hours_value",valueKey2: "", href1: null, href2: null },
 ];
 
 export default function ContactPage() {
@@ -75,6 +75,7 @@ export default function ContactPage() {
                 {contactInfoItems.map((item) => {
                   const Icon = item.icon;
                   const value = t(item.valueKey);
+                  const value2 = t(item.valueKey2);
                   return (
                     <div
                       key={item.titleKey}
@@ -88,13 +89,23 @@ export default function ContactPage() {
                           {t(item.titleKey)}
                         </p>
                         {item.href ? (
+                          <>  
                           <a
                             href={item.href}
-                            className="text-kyan-blue font-medium text-sm hover:text-kyan-green kyan-transition"
+                            className="text-kyan-blue font-medium text-sm hover:text-kyan-green kyan-transition px-2"
                             dir="ltr"
                           >
                             {value}
                           </a>
+                          -
+                          <a
+                            href={item.href2}
+                            className="text-kyan-blue font-medium text-sm hover:text-kyan-green kyan-transition px-2"
+                            dir="ltr"
+                          >
+                            {value2}
+                          </a>
+                          </>
                         ) : (
                           <p className="text-foreground font-medium text-sm">{value}</p>
                         )}
@@ -106,10 +117,12 @@ export default function ContactPage() {
                 {/* Map placeholder */}
                 <div className="rounded-2xl bg-kyan-blue-light border border-kyan-border overflow-hidden h-48 flex items-center justify-center">
                   <div className="text-center px-6">
-                    <MapPin className="w-8 h-8 text-kyan-blue mx-auto mb-2 opacity-50" />
-                    <p className="text-kyan-blue text-sm font-medium opacity-60">
-                      {t("contact.map_placeholder")}
-                    </p>
+                    <a href="https://maps.app.goo.gl/pgGfVtt1XhbW8ZXYA?g_st=iw" target="_blank" rel="noopener noreferrer">
+                      <MapPin className="w-8 h-8 text-kyan-blue mx-auto mb-2 opacity-50" />
+                      <p className="text-kyan-blue text-sm font-medium opacity-60">
+                        {t("contact.map_placeholder")}
+                      </p>
+                    </a>
                   </div>
                 </div>
               </div>
