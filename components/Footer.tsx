@@ -83,6 +83,14 @@ export default function Footer() {
               >
                 {t("contact.email_value")}
               </a>
+              -
+              <a
+                href={`mailto:${t("contact.email_value2")}`}
+                className="text-blue-200 hover:text-kyan-green text-sm kyan-transition"
+                dir="ltr"
+              >
+                {t("contact.email_value2")}
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-kyan-green flex-shrink-0" />
@@ -92,6 +100,14 @@ export default function Footer() {
                 dir="ltr"
               >
                 {t("contact.phone_value")}
+              </a>
+              -
+              <a
+                href={`tel:${t("contact.phone_value2")}`}
+                className="text-blue-200 hover:text-kyan-green text-sm kyan-transition"
+                dir="ltr"
+              >
+                {t("contact.phone_value2")}
               </a>
             </li>
             <li className="flex items-start gap-3">
